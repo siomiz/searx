@@ -9,7 +9,7 @@ RUN apk add -U \
 
 ADD https://github.com/asciimoo/searx/archive/v0.12.0.tar.gz /opt
 
-RUN ln -s /opt/searx* /opt/searx
+RUN mv /opt/searx-* /opt/searx
 
 WORKDIR /opt/searx
 
