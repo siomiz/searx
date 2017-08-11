@@ -7,19 +7,22 @@ RUN apk add -U \
     openssl \
     python
 
-ADD https://github.com/asciimoo/searx/archive/v0.12.0.tar.gz /opt
+ENV SEARX_VERSION v0.12.0
 
-RUN ls -la /opt
-
-RUN mv /opt/searx-* /opt/searx
+# FIXME this somehow doesn't work on Docker Cloud build...
+# Error is: can't stat '/opt/searx': Not a directory
+# ADD https://github.com/asciimoo/searx/archive/v0.12.0.tar.gz /opt
+# RUN mv /opt/searx-* /opt/searx
 
 WORKDIR /opt/searx
 
-COPY . .
+COPY install.sh /
 
-RUN /bin/sh install.sh
+RUN /bin/sh /install.sh
 
 USER searx
+
+COPY . .
 
 CMD ["/usr/bin/python", "searx/webapp.py"]
 
