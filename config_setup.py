@@ -20,7 +20,7 @@ with open('searx/settings.yml', 'r+') as f, \
     settings = yaml.load(f)
     override = yaml.load(g)
 
-    if(!override['server']['secret_key'])
+    if not override['server']['secret_key']:
         override['server']['secret_key'] = os.urandom(32)
 
     settings = update(settings, override)
