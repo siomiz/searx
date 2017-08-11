@@ -1,0 +1,10 @@
+# This yaml config file will be applied over the default config at runtime.
+# Mount your config at /opt/searx/settings.local.yml for `docker run`.
+
+general:
+  debug: False
+server:
+  bind_address: "0.0.0.0"
+  secret_key: "" # Keep this blank to have it automatially generated
+  image_proxy: True
+  http_protocol_version: "1.1"
