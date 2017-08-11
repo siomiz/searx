@@ -7,7 +7,7 @@ apk add ${packages}
 
 adduser searx -D -h /opt/searx
 
-git clone --depth=1 https://github.com/asciimoo/searx.git /opt/searx
+git clone https://github.com/asciimoo/searx.git /opt/searx
 git checkout ${SEARX_VERSION:-"master"}
 
 sudo -u searx -- pip install --user -r requirements.txt
